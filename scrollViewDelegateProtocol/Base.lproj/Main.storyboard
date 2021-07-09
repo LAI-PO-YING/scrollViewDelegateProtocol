@@ -1,24 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="scrollViewDelegateProtocol" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nek-Ct-w6S">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UJ1-U9-0EC">
+                                        <rect key="frame" x="0.0" y="0.0" width="1242" height="896"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="biX-Y0-0GX">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic2" translatesAutoresizingMaskIntoConstraints="NO" id="Udv-1Q-sep">
+                                                <rect key="frame" x="414" y="0.0" width="414" height="896"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic3" translatesAutoresizingMaskIntoConstraints="NO" id="BCe-qU-Tfg">
+                                                <rect key="frame" x="828" y="0.0" width="414" height="896"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="UJ1-U9-0EC" firstAttribute="top" secondItem="Ohb-rN-G9f" secondAttribute="top" id="3VK-xi-WIQ"/>
+                                    <constraint firstItem="UJ1-U9-0EC" firstAttribute="trailing" secondItem="Ohb-rN-G9f" secondAttribute="trailing" id="I93-qo-xbd"/>
+                                    <constraint firstItem="biX-Y0-0GX" firstAttribute="width" secondItem="aq6-6B-hYs" secondAttribute="width" id="RXY-9t-re5"/>
+                                    <constraint firstItem="UJ1-U9-0EC" firstAttribute="bottom" secondItem="Ohb-rN-G9f" secondAttribute="bottom" id="tOv-oN-BPe"/>
+                                    <constraint firstItem="biX-Y0-0GX" firstAttribute="height" secondItem="aq6-6B-hYs" secondAttribute="height" id="vZY-nC-At5"/>
+                                    <constraint firstItem="UJ1-U9-0EC" firstAttribute="leading" secondItem="Ohb-rN-G9f" secondAttribute="leading" id="wiW-ow-pHw"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Ohb-rN-G9f"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="aq6-6B-hYs"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="U3v-CC-y8A"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="V2I-9K-3hA">
+                                <rect key="frame" x="146.5" y="834.5" width="121.5" height="27.5"/>
+                                <connections>
+                                    <action selector="pageDotChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="lyZ-9W-Ku2"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Nek-Ct-w6S" secondAttribute="trailing" id="8oE-Tv-upD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="V2I-9K-3hA" secondAttribute="bottom" id="e8h-Ex-Bet"/>
+                            <constraint firstAttribute="bottom" secondItem="Nek-Ct-w6S" secondAttribute="bottom" id="gsA-ZQ-nn8"/>
+                            <constraint firstItem="Nek-Ct-w6S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oWP-W0-Tif"/>
+                            <constraint firstItem="V2I-9K-3hA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pGd-bs-0if"/>
+                            <constraint firstItem="Nek-Ct-w6S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="v6i-eD-qge"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageDot" destination="V2I-9K-3hA" id="jd4-mI-pZX"/>
+                        <outlet property="scrollView" destination="Nek-Ct-w6S" id="exj-9M-ZmE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pic1" width="800" height="1133"/>
+        <image name="pic2" width="800" height="1133"/>
+        <image name="pic3" width="480" height="680"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
